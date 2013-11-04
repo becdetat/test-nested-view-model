@@ -17,5 +17,10 @@ namespace NestedViewModel.Controllers
             return View(new HomeViewModel());
         }
 
+        public ActionResult UsingEditorFor()
+        {
+            return View(new HomeViewModel());
+        }
+
     }
 }

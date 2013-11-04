@@ -1,0 +1,9 @@
+﻿@model NestedViewModel.Models.HomeViewModel
+
+<p>
+    @Html.LabelFor(x => x.HomeViewModelField)
+    @Html.TextBoxFor(x => x.HomeViewModelField)
+</p>
+
+@Html.EditorFor(x => x.Nested)
+
