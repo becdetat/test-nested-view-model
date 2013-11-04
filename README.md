@@ -1,9 +1,10 @@
 test-nested-view-model
 ======================
 
-Trivial example showing problems composing views in ASP.NET MVC 4 using partials and nested view models
+I'm trying to illustrate composing a view. I suspect a better method would be `Html.EditorFor` but that approach doesn't seem as rich as using partials (how would I use different editors for the same view model in a different context?).
 
-I'm trying to illustrate composing a view. I suspect a better method would be `EditorFor` but that approach doesn't seem as rich as using partials (how would I use different editors for the same view model in a different context?).
+TL;DR: it turns out that `Html.EditorFor` is _exactly_ the correct solution, and as you can specify the template it is as flexible as you would expect.
+
 
 ### Using a partial
 
@@ -70,3 +71,19 @@ The result is cooler than I expected. The nested view model's field names are co
 	    <label for="Nested_NestedViewModelField">NestedViewModelField</label>
 	    <input id="Nested_NestedViewModelField" name="Nested.NestedViewModelField" type="text" value="" />
 	</p>
+
+
+### Composing views and DRY
+
+The reason I wanted to explore nested view models was to be able to reuse parts of a form across different views and controllers, so that I am composing the views in a manner that is DRY. Partials are ok because they can be shared across the application, but they don't respect the view model. `EditorTemplates` (and `DisplayTemplates`) work better than I expected and look to be the correct solution. So how can I share an editor template across different controllers?
+
+`Html.EditorFor` takes a `templateName` argument. I didn't expect that. As a special bonus, the engine searches for editor templates in `Views/Shared` by default ([SO](http://stackoverflow.com/a/7841835/149259)). So I dropped two editors for my nested view model into `/Shared/EditorTemplates/MyNestedViewModel/` and specified which templates to use:
+
+	@Html.EditorFor(x => x.Nested, "MyNestedViewModel/EditorOne")
+	@Html.EditorFor(x => x.Nested, "MyNestedViewModel/EditorTwo")
+
+Magic. Intellisense even picked up the template name.
+
+
+
+

@@ -22,5 +22,9 @@ namespace NestedViewModel.Controllers
             return View(new HomeViewModel());
         }
 
+        public ActionResult UsingSharedEditorTemplates()
+        {
+            return View(new HomeViewModel());
+        }
     }
 }

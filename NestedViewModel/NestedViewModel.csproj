@@ -143,10 +143,19 @@
     <Content Include="Views\Home\_Nested.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\EditorTemplates\MyNestedViewModel.cshtml" />
+    <Content Include="Views\Home\EditorTemplates\MyNestedViewModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\UsingEditorFor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\MyNestedViewModel\EditorOne.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\MyNestedViewModel\EditorTwo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\UsingSharedEditorTemplates.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
