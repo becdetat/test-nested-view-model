@@ -10,7 +10,7 @@ TL;DR: it turns out that `Html.EditorFor` is _exactly_ the correct solution, and
 
 The views look like this:
 
-`Index.cshtml`
+`Index.cshtml`:
 
 	@model NestedViewModel.Models.HomeViewModel
 
@@ -21,7 +21,7 @@ The views look like this:
 
 	@Html.Partial("_Nested", Model.Nested)
 
-`_Nested.cshtml`
+`_Nested.cshtml`:
 
 	@model NestedViewModel.Models.MyNestedViewModel
 
